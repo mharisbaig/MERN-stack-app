@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Wise Report</title>
+    <style>
+        *{ font-family: "Calibri"; margin: 0px; padding: 0px; }
+        body { margin-top: 20px; margin-left: 20px; }
+        .tablefont { font-size: 13px; }
+        th, td { padding: 5px; }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script>
+            $(document).ready(function(){
+                $("table#id2 tr:even").css("background-color", "#e0f2f1");
+                //$("tr:odd").css("background-color", "#4db6ac");
+            });
+
+    </script>
+</head>
+<body>
+    <h3>Arebre English Medium School </h3>
+    <h4>Current Student Report Class Wise</h4>
+
+    <table border="0px" id="id2" cellpading="25px" cellspacing="0px" width="900px" class="tablefont" >
+        <tr>
+            <th>S#</th>            
+            <th>Student Name</th>
+            <th>Father Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+        </tr>
+
+        
+      
+        <% var newval = []; %>
+        <% var ispresent = ''; %>
+        <% studentdata.forEach(function(data) { %>
+            
+            
+            <% ispresent = newval.indexOf(data.classname);
+                
+      
+                if(ispresent == -1) {
+            %>        
+                    <tr style="background-color:turquoise"><td colspan="6"><h2><%= data.classname %></h2></td></tr>
+                    
+
+            <%        
+                    newval.push(data.classname);
+                } %> 
+   
+
+
+        <tr>
+            
+            <td>1</td>            
+            <td><%= data.studentname %></td>
+            <td><%= data.fathername %></td>
+            <td><%= data.mobile %></td>
+            <td><%= data.email %></td>
+        </tr>
+        <% }) %>
+
+
+    </table>
+    
+</body>
+</html>
